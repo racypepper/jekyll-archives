@@ -1,4 +1,4 @@
-require 'helper'
+require_relative 'helper'
 
 class TestJekyllArchives < Minitest::Test
   context "the jekyll-archives plugin" do
@@ -35,6 +35,7 @@ class TestJekyllArchives < Minitest::Test
       assert archive_exists? @site, "tag/test-tag/index.html"
       assert archive_exists? @site, "tag/tagged/index.html"
       assert archive_exists? @site, "tag/new/index.html"
+      assert archive_exists? @site, "tag/russkii-iazyk/index.html"
     end
 
     should "generate archive pages by category" do
@@ -120,7 +121,7 @@ class TestJekyllArchives < Minitest::Test
     end
 
     should "populate the {{ site.archives }} tag in Liquid" do
-      assert_equal 12, read_file("length.html").to_i
+      assert_equal 13, read_file("length.html").to_i
     end
   end
 
@@ -149,6 +150,7 @@ class TestJekyllArchives < Minitest::Test
       assert archive_exists? @site, "tag/test-tag/index.html"
       assert archive_exists? @site, "tag/tagged/index.html"
       assert archive_exists? @site, "tag/new/index.html"
+      assert archive_exists? @site, "tag/russkii-iazyk/index.html"
     end
 
     should "not generate the disabled archives" do
