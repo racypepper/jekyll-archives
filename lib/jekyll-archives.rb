@@ -1,4 +1,5 @@
 require 'jekyll'
+require 'stringex'
 
 module Jekyll
   module Archives
